@@ -63,7 +63,15 @@ stages = ['''
 =========
 ''']
 
-
+logo = ''' 
+ _                                             
+| |                                            
+| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
+| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
+| | | | (_| | | | | (_| | | | | | | (_| | | | |
+|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                    __/ |                      
+                   |___/    '''
 
 statement_right = "Right choice of a letter!"
 statement_wrong = "Wrong choice of a letter!"
@@ -123,6 +131,7 @@ def checkDisplay():
 
 
 while game_on:
+    print(logo)
     chosen_word = random.choice(word_list)
     print(chosen_word)
     alive_current = len(stages) -1 
