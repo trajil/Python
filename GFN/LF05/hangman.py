@@ -20,30 +20,12 @@ statement_wrong = "Wrong choice of a letter!"
 statement_alzheimer = "We already had that one, Captain Alzheimer..."
 statement_error = "Please choose only 1 letter at a time!"
 question_replay = "Wanna replay? Press Y/N"
+statement_winner = "We have a Bingo!"
+statement_loser = "Sorry, you've lost."
 
 word_list = ["Dragonball", "JavaScript", "Python", "Programmieren"]
-chosen_word = random.choice(word_list)
-alive_begin, alive_current = len(chosen_word) + 5, len(chosen_word) + 5
 
-letters_used = []
-display = []
-
-
-def turnCheck(guess):
-    while True:
-        print(guess)
-        if len(guess) == 1:
-            if guess in chosen_word:
-                print(statement_right)
-            else:
-                print(statement_wrong)
-            break
-        else:
-            print(statement_error)
-    return guess
-
-
-def inputJustOneLetter():
+def turn():
     global alive_current
     global letters_used
     if len(guess) != 1:
@@ -52,10 +34,18 @@ def inputJustOneLetter():
     if guess in letters_used:
         print(statement_alzheimer)
         return None
+    
+    
     letters_used.append(guess)
-    if guess in chosen_word:
+    
+    
+    if guess in chosen_word.lower():
         print(statement_right)
-       
+        for i in range(len(chosen_word.lower())):
+            if i == 0 and chosen_word[0].lower() == guess:
+                display[0] = guess.upper()
+            if i != 0 and chosen_word[i].lower() == guess:
+                display[i] = guess
     else:
         print(statement_wrong)
         
@@ -75,20 +65,35 @@ def questionReplay():
         print("Invalid input!")
         return False
     
+def checkDisplay():
+    global game_finished
+    if display.count("_") == 0:
+        game_finished = True
     
 
 
-
-print(chosen_word)
 while game_on:
-    while alive_current > 0:
+    chosen_word = random.choice(word_list)
+    print(chosen_word)
+    alive_current = len(chosen_word) + 5
+    display = ["_" for _ in chosen_word]
+    game_finished = False
+    letters_used = []
+    
+    while alive_current > 0 and not game_finished:
         guess = input("Guess a letter: ").lower()
-        inputJustOneLetter()
+        turn()
         
-        display.append("_")
+        # display.append("_")
         print("Lives left: ", alive_current)
         print(display)
+        checkDisplay()
 
-
-    game_on = questionReplay()
+    if game_finished:
+        print(statement_winner)
+    if alive_current < 1:
+        print(statement_loser)    
+    
+    
+    game_on = questionReplay()        
     input("")
