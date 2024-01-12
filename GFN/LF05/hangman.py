@@ -125,7 +125,7 @@ def checkDisplay():
 while game_on:
     chosen_word = random.choice(word_list)
     print(chosen_word)
-    alive_current = len(stages)
+    alive_current = len(stages) -1 
     #alive_current = len(chosen_word) + 5
     display = ["_" for _ in chosen_word]
     game_finished = False
