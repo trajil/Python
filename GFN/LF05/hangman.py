@@ -6,6 +6,65 @@ import random
 
 game_on = True
 
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
+
+
 statement_right = "Right choice of a letter!"
 statement_wrong = "Wrong choice of a letter!"
 statement_alzheimer = "We already had that one, Captain Alzheimer..."
@@ -66,7 +125,8 @@ def checkDisplay():
 while game_on:
     chosen_word = random.choice(word_list)
     print(chosen_word)
-    alive_current = len(chosen_word) + 5
+    alive_current = len(stages)
+    #alive_current = len(chosen_word) + 5
     display = ["_" for _ in chosen_word]
     game_finished = False
     letters_used = []
@@ -77,6 +137,7 @@ while game_on:
         
         # display.append("_")
         print("Lives left: ", alive_current)
+        print(stages[alive_current])
         print(display)
         checkDisplay()
 
