@@ -345,8 +345,6 @@ def checkDisplay():
     if display.count("_") == 0:
         game_finished = True
     
-
-
 while game_on:
     print(logo)
     chosen_word = random.choice(word_list)
@@ -371,7 +369,6 @@ while game_on:
         print(statement_winner)
     if alive_current < 1:
         print(statement_loser)    
-    
-    
+        
     game_on = questionReplay()        
     input("")
