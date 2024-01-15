@@ -1,0 +1,3 @@
+Input:  stijicbmzuivv    bmab  
+Output:  klabautermann    test  
+Used Key:  -8 [ decrypted ]
