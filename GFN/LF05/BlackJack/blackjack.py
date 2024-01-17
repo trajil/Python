@@ -212,3 +212,4 @@ while game_on and (money > 0 and money < 1500):
         money = bankEnd(money,bet,winner)
         printCurrentMoney()
         askForReplay()
+wait=(input())
