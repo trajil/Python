@@ -5,7 +5,7 @@ import os
 current_directory = os.getcwd()
 
 # Set the relative path of the wallpaper image
-wallpaper_path = current_directory + "\screenshot.png"
+wallpaper_path = current_directory + "\webcam\shot1.png"
 
 
 # Set the style of the wallpaper
