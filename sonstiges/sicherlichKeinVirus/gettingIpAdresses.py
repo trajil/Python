@@ -38,3 +38,5 @@ public_ip_address = get_public_ip_address()
 print(f"Host IPv6 Address: {ipv6_address}")
 print(f"Host IPv4 Address: {ipv4_address}")
 print(f"Public IP Address: {public_ip_address}")
+
+wait = input("")
