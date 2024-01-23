@@ -7,8 +7,10 @@ Path("webcam/").mkdir(parents=True, exist_ok=True)
 folder_path = "webcam/"
 number_of_pics = 240
 
+current_directory = os.getcwd()
+
 #Initialize the camera
-cam_port = 1
+cam_port = 0
 print(f"trying port {cam_port}")
 portlimit = 10
 cam = cv2.VideoCapture(cam_port)
@@ -32,8 +34,8 @@ if cam.isOpened():
             cv2.imwrite(pic_name, image)
             if start_program == 0:
                 time.sleep(0.5)
-                start_path = 'C:\Projekte\Python\sonstiges\sicherlichKeinVirus\changeDesktopNonstop.py'
-                os.startfile(start_path)
+                path = current_directory + '\changeDesktopNonstop.py'
+                os.startfile(path)
                 start_program += 1
             time.sleep(0.5)
         else:

@@ -5,6 +5,7 @@ current_directory = os.getcwd()
 print("working DIR:", current_directory)
 
 while True:
+    os.system('cls' if os.name == 'nt' else 'clear')
     payload = input("Choose:\n1: install requirements\n2: webcam\n3: change Desktop nonstop\n4: take screenshot\n5: getting and printing Ip-adresses\n6: webrawler (work in progress)\n7: delete pictures\n8: toggle Background\n")
     match payload:
         case "1":
